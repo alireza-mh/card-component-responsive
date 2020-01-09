@@ -1,0 +1,216 @@
+@import (reference) "~src/theme/main.less";
+
+/* bcd mean boat card detail */
+.bcd {
+  width: 100%;
+  border: solid 1px @pinkish-grey;
+}
+
+/* 1R means first Row */
+/* avoided BEM nesting here because it may affect readability here */
+.bcd__1R-container {
+  display: flex;
+  background: @white;
+}
+.bcd__1R__1C {
+  padding: 10px;
+  flex-grow: 4;
+}
+.bcd__1R__2C {
+  padding: 10px;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bcd-wish-list {
+  cursor: pointer;
+  &:hover {
+    color: red;
+  }
+}
+.bcd-name-built__container {
+  display: flex;
+  padding-bottom: 8px;
+}
+.bcd-name,
+.bcd-built {
+  font-size: 18px;
+  color: @charcoal-grey;
+}
+.bcd-name {
+  margin-right: 10px;
+  font-weight: bold;
+}
+.bcd-boat-type {
+  font-size: 16px;
+  color: @charcoal-grey;
+}
+
+.bcd__1R__3C {
+  padding: 15px;
+  color: @pale-red;
+  border-left: 1px solid @pinkish-grey;
+  flex-grow: 1;
+}
+.bcd-hot-view__container {
+  display: flex;
+  align-items: center;
+}
+.bcd-views {
+  font-size: 12px;
+  font-weight: bold;
+}
+.bcd-hot-tag {
+  background: @pale-red;
+  border-radius: 2px;
+  color: white;
+  font-size: 12px;
+  padding: 3px;
+  margin-right: 5px;
+  font-weight: bold;
+}
+.bcd-l24h {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.bcd__2R-container {
+  display: flex;
+  border-top: 1px solid @pinkish-grey;
+}
+/* second row 1 till 3 column */
+.bcd__2R__1-3C {
+  display: flex;
+  width: 60%;
+}
+.bcd__2R__4C {
+  width: 40%;
+}
+.num-title-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  width: 100%;
+  border-right: 1px solid @pinkish-grey;
+}
+.ntc__value,
+.sail-extra-value {
+  font-size: 16px;
+  font-weight: bold;
+  color: @charcoal-grey;
+}
+.ntc__title,
+.sail-extra-title,
+.bcd-price-title {
+  font-size: 12px;
+  color: @pinkish-grey;
+}
+.ntc__title {
+  margin-top: 8px;
+}
+.bcd__3-4R-container {
+  display: flex;
+  border-top: solid 1px @pinkish-grey;
+}
+.bcd-option-sail-option__container {
+  width: 60%;
+  box-sizing: border-box;
+  border-right: 1px solid @pinkish-grey;
+}
+.boat-options {
+  display: flex;
+  padding: 15px;
+  color: @charcoal-grey-50;
+  .options-item {
+    margin-right: 8px;
+    span {
+      margin: 0 8px;
+    }
+  }
+}
+.bcd-sail-extra__container {
+  padding: 0 15px;
+}
+.bcd-sail-extra {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.sail-extra-title {
+  width: 25%;
+  margin-top: 0;
+}
+.sail-extra-value {
+  width: 75%;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.bcd-price-order__container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 40%;
+}
+.bcd-price__container {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  box-sizing: border-box;
+  width: 100%;
+  svg {
+    path {
+      fill: @pinkish-grey;
+    }
+  }
+}
+.bcd-price-value,
+.weekly {
+  color: @charcoal-grey;
+  font-size: 20px;
+  font-weight: bold;
+  flex-grow: 2;
+  text-align: center;
+}
+.weekly {
+  font-size: 16px;
+  margin: 0 5px;
+}
+.bcd-booking{
+  padding: 15px;
+  flex-direction: column;
+  border-top: 1px solid @pinkish-grey;
+}
+.bcd-booking-title{
+  text-align: center;
+  color: @charcoal-grey;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: OpenSans, sans-serif;
+  svg{
+    margin: 0 5px;
+  }
+}
+
+.bcd-booking-hexagon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: @pale-red;
+  clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%, 10% 50%);
+  color: @white;
+  height: 40px;
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 8px;
+  cursor: pointer;
+}
