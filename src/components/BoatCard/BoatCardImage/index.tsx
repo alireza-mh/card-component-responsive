@@ -4,8 +4,8 @@ import "./style.less";
 /**
  * @interface BoatCardImage Component IProps
  */
-interface IBoatCardImageProps extends React.HTMLProps<HTMLDivElement> {
-  imageSrc: string;
+export interface IBoatCardImageProps extends React.HTMLProps<HTMLDivElement> {
+  imageSrc?: string;
   /* ribbon properties */
   ribbonText?: string;
   ribbonColor?: string;

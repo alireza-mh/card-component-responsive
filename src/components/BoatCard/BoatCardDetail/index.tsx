@@ -9,7 +9,7 @@ import "./style.less";
 /**
  * @interface BoatCardDetail Component IProps
  */
-interface IBoatCardDetailProps extends React.HTMLProps<HTMLDivElement> {
+export interface IBoatCardDetailProps {
   className?: string;
   boatDetail: IBoatDetail;
 }

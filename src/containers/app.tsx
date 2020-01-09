@@ -1,8 +1,6 @@
 import React from "react";
 import { hot } from "react-hot-loader/root";
-import BoatCardImage from "src/components/BoatCard/BoatCardImage";
-import BoatImg from './DemoAssets/boat-image.jpg';
-import BoatCardDetail from "src/components/BoatCard/BoatCardDetail";
+import BoatCard from "src/components/BoatCard";
 import {mockBoatData} from "src/components/BoatCard/BoatCardDetail/mockData";
 import "./style.less";
 
@@ -15,7 +13,7 @@ interface IProps {
  * @param props
  */
 const AppContainer: React.FC<IProps> = (props: IProps) => {
-  return <div className="app-container"><BoatCardDetail  boatDetail={mockBoatData}/></div>;
+  return <div className="app-container"><BoatCard ribbonText='Zizoo Promotion' boatDetail={mockBoatData}/></div>;
 };
 
 export default hot(AppContainer);

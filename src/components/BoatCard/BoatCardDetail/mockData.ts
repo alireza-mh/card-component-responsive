@@ -1,3 +1,4 @@
+import BoatImg from 'src/containers/DemoAssets/boat-image.jpg';
 export const mockBoatData = {
   name: 'Jeannau Sun Odyssey 45.2',
   boatType: 'Split, Croatia',
@@ -12,7 +13,8 @@ export const mockBoatData = {
   sailType: 'Rolling Mainsail',
   freeExtras: ['AirCon, WIFI, Very Long Extra Description'],
   price: 1083.00,
-  bookingLink: 'something that I dont know'
+  bookingLink: 'something that I dont know',
+  image: BoatImg,
 }
 
 export interface IBoatDetail {
@@ -30,4 +32,5 @@ export interface IBoatDetail {
   freeExtras: string[];
   price: number;
   bookingLink: string;
+  image: string;
 }

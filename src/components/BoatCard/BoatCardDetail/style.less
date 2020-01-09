@@ -214,3 +214,49 @@
   margin-top: 8px;
   cursor: pointer;
 }
+
+/* we assume 900px is for mobile por presentation purpose */
+@media only screen and (max-width: 900px) {
+  .bcd__1R__2C{
+    display: none;
+  }
+  .bcd-option-sail-option__container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    .boat-options{
+      flex-direction: column;
+      .options-item{
+        display: flex;
+        align-items: center;
+      }
+    }
+    .bcd-sail-extra__container{
+      display: flex;
+      flex-grow: 2;
+      flex-direction: row;
+      padding-left: 0;
+    }
+    .sail-extra-title, .bcd-sail-extra{
+      width: 100%;
+    }
+    .bcd-sail-extra{
+      justify-content: flex-start;
+      flex-direction: column;
+    }
+  }
+  .bcd__3-4R-container{
+    flex-direction: column;
+  }
+  .bcd-price-order__container{
+    flex-direction: row;
+    width: 100%;
+  }
+  .bcd-price__container{
+    border-top: 1px solid @pinkish-grey;
+    border-right: 1px solid @pinkish-grey;
+  }
+  .bcd-price__container, .bcd-booking{
+    width: 100%;
+  }
+}
