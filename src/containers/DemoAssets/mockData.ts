@@ -11,7 +11,7 @@ export const mockBoatData = {
   averageReviewValue: 5,
   options: ['Sicherungsshein', 'luxury'],
   sailType: 'Rolling Mainsail',
-  freeExtras: ['AirCon, WIFI, Very Long Extra Description'],
+  freeExtras: ['AirCon', 'WIFI', 'Very Long Extra Description'],
   price: 1083.00,
   bookingLink: 'something that I dont know',
   image: BoatImg,

@@ -1,13 +1,15 @@
+@import (reference) "~src/theme/main.less";
+
 .boat-card{
   display: flex;
 }
 .boat-card-image__wrapper{
   width: 40%;
+  box-sizing: border-box;
   .boat-card-image__container {
     display: flex;
     align-items: center;
     height: 100%;
-    box-sizing: border-box;
   }
   .boat-card-image{
     height: 100%;
@@ -15,20 +17,18 @@
 }
 .boat-card-detail__wrapper{
   width: 60%;
+  box-sizing: border-box;
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: @mobile-break-point) {
   .boat-card-image{
     padding-bottom: 0;
   }
 }
 /* we assume 900px is for mobile por presentation purpose */
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: @mobile-break-point) {
   .boat-card{
     flex-direction: column;
-  }
-  .boat-card-image__container{
-    min-height: 300px;
   }
   .boat-card-image__wrapper, .boat-card-detail__wrapper{
     width: 100%;

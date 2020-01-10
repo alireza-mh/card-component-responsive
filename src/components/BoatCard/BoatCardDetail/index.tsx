@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { IBoatDetail } from "src/components/BoatCard/BoatCardDetail/mockData";
+import React, { useEffect, useState } from "react";
+import { IBoatDetail } from "src/containers/DemoAssets/mockData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as faHeartSolid, faCheck, faQuestionCircle, faBolt } from "@fortawesome/free-solid-svg-icons";
@@ -40,22 +40,43 @@ const OptionsRender = (props: { options: string[] }) => {
  * @function ArrayListToString
  * @description convert array list to string list
  * @param array
- * @param splitor{string}
+ * @param splitter{string}
+ * @param limit{number}
  * @constructor
  */
-const ArrayListToString = (array: string[], splitor: string = ",") => {
-  if (array.length > 1) {
-    const lastElement = array.pop();
-    return `${array.join(splitor)} ${lastElement}`;
+const ArrayListToString = (array: string[], splitter: string = ", ", limit: number = 6) => {
+  const arrayTemp = array.slice(0, limit);
+  if (arrayTemp.length > 2) {
+    const lastElement = arrayTemp.pop();
+    return `${arrayTemp.join(splitter)} ${lastElement}`;
   }
-  return array.toString();
+  return arrayTemp.toString();
 };
 /**
  * @param props: IBoatCardDetailProps
  */
 const BoatCardDetail: React.FC<IBoatCardDetailProps> = (props: IBoatCardDetailProps) => {
   const { className, boatDetail } = props;
-  const [whishList, setWishList] = useState(false);
+  const [wishList, setWishList] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  /**
+   * @description just implemented for more detail --> some messages such as '24 hours' must be change to '24h' in mobile also,
+   * we should show 2 free extras in mobile
+   */
+  useEffect(() => {
+    const htmlStyles = window.getComputedStyle(document.querySelector("html"));
+    const mobileSize = htmlStyles.getPropertyValue("--mobile-break-point");
+    const mql = window.matchMedia(`(max-width: ${mobileSize})`);
+    function screenTest(e) {
+      setIsMobile(Boolean(e.matches));
+    }
+    mql.addListener(screenTest);
+    return () => {
+      mql.removeListener(screenTest);
+    };
+  }, []);
+
   return (
     <div className={`bcd ${className}`}>
       <div className="bcd__1R-container">
@@ -67,9 +88,9 @@ const BoatCardDetail: React.FC<IBoatCardDetailProps> = (props: IBoatCardDetailPr
           <span className="bcd-boat-type">{boatDetail.boatType}</span>
         </div>
         <div className="bcd__1R__2C">
-          <div className="bcd-wish-list" onClick={() => setWishList(!whishList)}>
-            {!whishList && <FontAwesomeIcon icon={faHeartRegular} />}
-            {whishList && <FontAwesomeIcon color={"red"} icon={faHeartSolid} />}
+          <div className="bcd-wish-list" onClick={() => setWishList(!wishList)}>
+            {!wishList && <FontAwesomeIcon icon={faHeartRegular} />}
+            {wishList && <FontAwesomeIcon color={"red"} icon={faHeartSolid} />}
           </div>
         </div>
         <div className="bcd__1R__3C">
@@ -77,7 +98,7 @@ const BoatCardDetail: React.FC<IBoatCardDetailProps> = (props: IBoatCardDetailPr
             <span className="bcd-hot-tag">HOT</span>
             <span className="bcd-views">{boatDetail.viewInDay} views</span>
           </div>
-          <span className="bcd-l24h">in the last 24 hours</span>
+          <span className="bcd-l24h">{`in the last 24${isMobile ? 'h' : ' hours'}`}</span>
         </div>
       </div>
       <div className="bcd__2R-container">
@@ -89,7 +110,7 @@ const BoatCardDetail: React.FC<IBoatCardDetailProps> = (props: IBoatCardDetailPr
         <div className="bcd__2R__4C">
           <NumTitleColumn
             title={`${boatDetail.totalReview} Reviews`}
-            value={<ReactStars count={5} edit={false} value={boatDetail.averageReviewValue} color1={"#ffd700"} />}
+            value={<ReactStars count={5} edit={false} value={5} color2={"#ffd700"} />}
           />
         </div>
       </div>
@@ -103,24 +124,26 @@ const BoatCardDetail: React.FC<IBoatCardDetailProps> = (props: IBoatCardDetailPr
             </div>
             <div className="bcd-sail-extra">
               <span className="sail-extra-title">FREE EXTRAS</span>
-              <span className="sail-extra-value">{ArrayListToString(boatDetail.freeExtras, ",")}</span>
+              <span className="sail-extra-value">{ArrayListToString(boatDetail.freeExtras, ", ", isMobile ? 2 : 6)}</span>
             </div>
           </div>
         </div>
         <div className="bcd-price-order__container">
           <div className="bcd-price__container">
             <span className="bcd-price-title">FROM</span>
-            <span className="bcd-price-value">
-              {`${boatDetail.price.toLocaleString("de-BE", {
-                style: "currency",
-                currency: "EUR",
-              })}`}
-              <span className="weekly">Weekly</span>
-            </span>
-            <FontAwesomeIcon icon={faQuestionCircle} />
+            <div className='bcd-price-value__container'>
+              <span className="bcd-price-value">
+                {`${boatDetail.price.toLocaleString(undefined, {
+                  style: "currency",
+                  currency: "EUR",
+                })}`}
+                <span className="weekly">Weekly</span>
+              </span>
+              <FontAwesomeIcon icon={faQuestionCircle} />
+            </div>
           </div>
           <div className="bcd-booking">
-            <div className='bcd-booking-title'>
+            <div className="bcd-booking-title">
               <FontAwesomeIcon icon={faBolt} />
               <span>DIRECT BOOKING</span>
             </div>

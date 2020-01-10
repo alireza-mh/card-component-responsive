@@ -1,9 +1,11 @@
 @import (reference) "~src/theme/main.less";
 
+@border-style: 1px solid @pinkish-grey;
+
 /* bcd mean boat card detail */
 .bcd {
   width: 100%;
-  border: solid 1px @pinkish-grey;
+  border: @border-style;
 }
 
 /* 1R means first Row */
@@ -50,7 +52,7 @@
 .bcd__1R__3C {
   padding: 15px;
   color: @pale-red;
-  border-left: 1px solid @pinkish-grey;
+  border-left: @border-style;
   flex-grow: 1;
 }
 .bcd-hot-view__container {
@@ -66,9 +68,9 @@
   border-radius: 2px;
   color: white;
   font-size: 12px;
+  font-weight: bold;
   padding: 3px;
   margin-right: 5px;
-  font-weight: bold;
 }
 .bcd-l24h {
   display: flex;
@@ -79,7 +81,7 @@
 
 .bcd__2R-container {
   display: flex;
-  border-top: 1px solid @pinkish-grey;
+  border-top: @border-style;
 }
 /* second row 1 till 3 column */
 .bcd__2R__1-3C {
@@ -96,7 +98,7 @@
   align-items: center;
   padding: 10px 0;
   width: 100%;
-  border-right: 1px solid @pinkish-grey;
+  border-right: @border-style;
 }
 .ntc__value,
 .sail-extra-value {
@@ -120,7 +122,7 @@
 .bcd-option-sail-option__container {
   width: 60%;
   box-sizing: border-box;
-  border-right: 1px solid @pinkish-grey;
+  border-right: @border-style;
 }
 .boat-options {
   display: flex;
@@ -163,6 +165,7 @@
 .bcd-price__container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 15px;
   box-sizing: border-box;
   width: 100%;
@@ -171,6 +174,11 @@
       fill: @pinkish-grey;
     }
   }
+}
+.bcd-price-value__container{
+  display: flex;
+  flex-grow: 2;
+  align-items: center;
 }
 .bcd-price-value,
 .weekly {
@@ -185,9 +193,9 @@
   margin: 0 5px;
 }
 .bcd-booking{
-  padding: 15px;
+  padding: 10px;
   flex-direction: column;
-  border-top: 1px solid @pinkish-grey;
+  border-top: @border-style;
 }
 .bcd-booking-title{
   text-align: center;
@@ -216,7 +224,7 @@
 }
 
 /* we assume 900px is for mobile por presentation purpose */
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: @mobile-break-point) {
   .bcd__1R__2C{
     display: none;
   }
@@ -224,6 +232,7 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+    border-right: unset;
     .boat-options{
       flex-direction: column;
       .options-item{
@@ -253,8 +262,11 @@
     width: 100%;
   }
   .bcd-price__container{
-    border-top: 1px solid @pinkish-grey;
-    border-right: 1px solid @pinkish-grey;
+    border-top: @border-style;
+    border-right: @border-style;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
   }
   .bcd-price__container, .bcd-booking{
     width: 100%;
