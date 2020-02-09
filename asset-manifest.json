@@ -1,0 +1,13 @@
+{
+  "commons~main~vendor.js": "./commons~main~vendor.2d1e.js",
+  "main.css": "./main.e247.css",
+  "main.js": "./main.e247.js",
+  "runtime~main.js": "./runtime~main.js",
+  "runtime~vendor.js": "./runtime~vendor.js",
+  "vendor.js": "./vendor.05e0.js",
+  "vendors~main.js": "./vendors~main.da8b.js",
+  "images/boat-image.jpg": "./images/boat-image.jpg",
+  "index.html": "./index.html",
+  "precache-manifest.2f4382de428f5d5d4f045e3b18586ff1.js": "./precache-manifest.2f4382de428f5d5d4f045e3b18586ff1.js",
+  "service-worker.js": "./service-worker.js"
+}
