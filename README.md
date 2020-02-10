@@ -4,6 +4,7 @@ Project has been made with [this](https://github.com/zerob4wl/sample-react-redux
 
 I used yarn that's a reason for existing `yarn.lock` but it also should work with `npm` sorry for the inconvenience.
 I also used less for styling.
+You can see [Demo](https://alireza-mh.github.io/card-component-responsive) here.
 ```
 ├── src
 ├── components                         // all component should be here
